@@ -1,0 +1,966 @@
+{% load static %}
+{% load i18n %}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta content="width=device-width, initial-scale=1.0" name="viewport">
+
+  <title>Brothers Education</title>
+  <meta content="" name="description">
+  <meta content="" name="keywords">
+  <link href="{% static 'assets3/img/apple-touch-icon.png' %}" rel="apple-touch-icon">
+
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css?family=Poppins:300,400,500,600,700" rel="stylesheet">
+
+  <!-- Vendor CSS Files -->
+  <link href="{% static 'assets3/vendor/animate.css/animate.min.css' %}" rel="stylesheet">
+  <link href="{% static 'assets3/vendor/bootstrap/css/bootstrap.min.css' %}" rel="stylesheet">
+  <link href="{% static 'assets3/vendor/bootstrap-icons/bootstrap-icons.css' %}" rel="stylesheet">
+  <link href="{% static 'assets3/vendor/swiper/swiper-bundle.min.css' %}" rel="stylesheet">
+
+  <!-- Template Main CSS File -->
+  <link href="{% static 'assets3/css/style.css' %}" rel="stylesheet">
+  <!-- Favicons -->
+  <link href="{% static 'assets1/favicon-32x32.png' %}" rel="icon">
+  <link href="{% static 'assets1/img/apple-touch-icon.png' %}" rel="apple-touch-icon">
+
+  <!-- Google Fonts -->
+  <link
+    href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i|Jost:300,300i,400,400i,500,500i,600,600i,700,700i|Poppins:300,300i,400,400i,500,500i,600,600i,700,700i"
+    rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Heebo:wght@400;500;600&family=Nunito:wght@600;700;800&display=swap" rel="stylesheet">
+
+    <!-- Icon Font Stylesheet -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.10.0/css/all.min.css" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.4.1/font/bootstrap-icons.css" rel="stylesheet">
+
+    <!-- Libraries Stylesheet -->
+    <link href="lib/animate/animate.min.css" rel="stylesheet">
+    <link href="lib/owlcarousel/assets/owl.carousel.min.css" rel="stylesheet">
+
+    <!-- Customized Bootstrap Stylesheet -->
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Template Stylesheet -->
+    <link href="css/style.css" rel="stylesheet">
+    <!-- <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous"> -->
+
+  <!-- Vendor CSS Files -->
+  <link href="{% static 'assets1/vendor/aos/aos.css' %}" rel="stylesheet">
+  <link href="{% static 'assets1/vendor/bootstrap/css/bootstrap.min.css' %}" rel="stylesheet">
+  <link href="{% static 'assets1/vendor/bootstrap-icons/bootstrap-icons.css' %}" rel="stylesheet">
+  <link href="{% static 'assets1/vendor/boxicons/css/boxicons.min.css' %}" rel="stylesheet">
+  <link href="{% static 'assets1/vendor/glightbox/css/glightbox.min.css' %}" rel="stylesheet">
+  <link href="{% static 'assets1/vendor/remixicon/remixicon.css' %}" rel="stylesheet">
+  <link href="{% static 'assets1/vendor/swiper/swiper-bundle.min.css' %}" rel="stylesheet">
+
+  <!-- Template Main CSS File -->
+  <link href="{% static 'assets1/css/style.css' %}" rel="stylesheet">
+
+  <!-- =======================================================
+  * Template Name: Arsha - v4.11.0
+  * Template URL: https://bootstrapmade.com/arsha-free-bootstrap-html-template-corporate/
+  * Author: BootstrapMade.com
+  * License: https://bootstrapmade.com/license/
+  ======================================================== -->
+<style>
+.mema{
+  color: white;
+  font-size: 15px;
+  padding-left: 10px;
+}
+</style>
+
+</head>
+
+<body>
+  <div class="messages-block">
+    {% if messagees %}
+      {%for msg in messages%}
+      <div class="alert alert-{{msg.tags}}" role="alert">
+          {{msg}}
+      </div>
+      {%endfor%}
+    {% endif %}
+  </div>
+
+  <!-- ======= Header ======= -->
+  <header id="header" class="fixed-top ">
+    <div class="container d-flex align-items-center">
+      <div class="container-fluid">
+          <img src="{% static 'pngwing.com.png' %}" rel="stylesheet" alt="" width="30" height="24" class="d-inline-block align-text-top">
+          <a href="#" class="mema">Brothers Education</a>
+      </div>
+      <!-- Uncomment below if you prefer to use an image logo -->
+      <!-- <a href="index.html" class="logo me-auto"><img src="assets/img/logo.png" alt="" class="img-fluid"></a>-->
+
+      <nav id="navbar" class="navbar">
+
+        <ul>
+            {% get_current_language as current_language %}
+            {% get_available_languages as available_languages %}
+            {% get_language_info_list for available_languages as langs %}
+            <li class="dropdown"><a href="#"><span>{{ current_language }} </span> <i class="bi bi-chevron-down"></i></a>
+                <ul>
+                  {% for i in langs %}
+                    <li><a class="dropdown-item" href="/{{i.code}}">{{i.name_local}}</a></li>
+                  {% endfor %}
+                </ul>
+              </li>
+          <li><a class="nav-link scrollto active" href="#hero">{% trans 'Bosh menu' %}</a></li>
+          <li><a class="nav-link scrollto" href="#about">{% trans 'Biz Haqimizda' %}</a></li>
+          <li><a class="nav-link scrollto" href="#services">{% trans 'Xizmatlar' %}</a></li>
+          <li><a class="nav-link   scrollto" href="#portfolio">{% trans 'rasmlar' %}</a></li>
+          <li><a class="nav-link scrollto" href="#team">{% trans 'ustozlar' %}</a></li>
+          <li class="dropdown"><a href="#"><span>{% trans 'qo`shimcha' %}</span> <i class="bi bi-chevron-down"></i></a>
+            <ul>
+              <li><a href="{% url 'mianexammet' %}">{% trans 'natijalar' %}</a></li>
+              <li class="dropdown"><a href="#"><span>{% trans 'yana' %}</span> <i class="bi bi-chevron-right"></i></a>
+                <ul>
+                  <li><a href="/admin">admin</a></li>
+                </ul>
+              </li>
+              <li><a href="{% url 'registration' %}">{% trans 'Ro`yxatdan o`tish' %}</a></li>
+              <li><a href="{% url 'quiz' %}">Quiz</a></li>
+              <li><a href="{%url 'feedback'%}">{% trans 'Izoh berish' %}</a></li>
+            </ul>
+          </li>
+          <li><a class="nav-link scrollto" href="{% url 'kurslarim' %}">{% trans 'Aloqa' %}</a></li>
+          <li><a class="getstarted scrollto" href="{% url 'registration' %}">{% trans 'Ro`yxatdan O`tish' %}</a></li>
+        </ul>
+        <i class="bi bi-list mobile-nav-toggle"></i>
+      </nav><!-- .navbar -->
+
+    </div>
+  </header><!-- End Header -->
+
+  <!-- ======= Hero Section ======= -->
+  <section id="hero" class="d-flex align-items-center">
+    
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-6 d-flex flex-column justify-content-center pt-4 pt-lg-0 order-2 order-lg-1"
+          data-aos="fade-up" data-aos-delay="200">
+          <h1>{% trans 'Talim uchun eng yaxshi yo`l' %}</h1>
+          <h2>{% trans 'Bizning kurslarimiz eng yaxshi va uni hech qayerdan topa olmaysiz !' %}</h2>
+          <div class="d-flex justify-content-center justify-content-lg-start">
+            <a href="{% url 'registration' %}" class="btn-get-started scrollto">{% trans 'Ro`yxatdan O`ting' %}</a>
+                     </div>
+        </div>
+        <div class="col-lg-6 order-1 order-lg-2 hero-img" data-aos="zoom-in" data-aos-delay="200">
+          <img src="../static/assets1/img/hero-img.png" class="img-fluid animated" alt="">
+        </div>
+      </div>
+    </div>
+
+  </section><!-- End Hero -->
+
+  <main id="main">
+
+    <!-- ======= Clients Section ======= -->
+    <section id="clients" class="clients section-bg">
+      <div class="container">
+
+        <div class="row" data-aos="zoom-in">
+
+          <div class="col-lg-2 col-md-4 col-6 d-flex align-items-center justify-content-center">
+            <img src="../static/assets1/img/clients/client-1.png" class="img-fluid" alt="">
+          </div>
+
+          <div class="col-lg-2 col-md-4 col-6 d-flex align-items-center justify-content-center">
+            <img src="../static/assets1/img/clients/client-2.png" class="img-fluid" alt="">
+          </div>
+
+          <div class="col-lg-2 col-md-4 col-6 d-flex align-items-center justify-content-center">
+            <img src="../static/assets1/img/clients/client-3.png" class="img-fluid" alt="">
+          </div>
+
+          <div class="col-lg-2 col-md-4 col-6 d-flex align-items-center justify-content-center">
+            <img src="../static/assets1/img/clients/client-4.png" class="img-fluid" alt="">
+          </div>
+
+          <div class="col-lg-2 col-md-4 col-6 d-flex align-items-center justify-content-center">
+            <img src="../static/assets1/img/clients/client-5.png" class="img-fluid" alt="">
+          </div>
+
+          <div class="col-lg-2 col-md-4 col-6 d-flex align-items-center justify-content-center">
+            <img src="../static/assets1/img/clients/client-6.png" class="img-fluid" alt="">
+          </div>
+
+        </div>
+
+      </div>
+    </section><!-- End Cliens Section -->
+    <!-- Courses Start -->
+    <div class="container-xxl py-5">
+      <div class="container">
+          <div class="text-center wow fadeInUp" data-wow-delay="0.1s">
+              <h6 class="section-title bg-white text-center text-primary px-3">{% trans 'Kurslar' %}</h6>
+              <h1 class="mb-5">{% trans 'Bizning Kurslarimiz' %}</h1>
+          </div>
+          <div class="row g-4 justify-content-center">
+              <div class="col-lg-4 col-md-6 wow fadeInUp" data-wow-delay="0.1s">
+                  <div class="course-item bg-light">
+                      <div class="position-relative overflow-hidden">
+                          <img class="img-fluid" src="{{x.image.url}}" alt="">
+                          <div class="w-100 d-flex justify-content-center position-absolute bottom-0 start-0 mb-4">
+                              <a href="#" class="flex-shrink-0 btn btn-sm btn-primary px-3 border-end" style="border-radius: 30px 0 0 30px;"></a>
+                              <a href="registration/" class="flex-shrink-0 btn btn-sm btn-primary px-3" style="border-radius: 0 30px 30px 0;">{% trans 'Hoziroq qo`shiling' %}</a>
+                          </div>
+                      </div>
+                      <div class="text-center p-4 pb-0">
+                          <h3 class="mb-0">{{x.cost_course}} so`m</h3>
+                          <div class="mb-3">
+                              <small class="fa fa-star text-primary"></small>
+                              <small class="fa fa-star text-primary"></small>
+                              <small class="fa fa-star text-primary"></small>
+                              <small class="fa fa-star text-primary"></small>
+                              <small class="fa fa-star text-primary"></small>
+                              <small></small>
+                          </div>
+                          <h5 class="mb-4">{{x.name}}</h5>
+                      </div>
+                      <div class="d-flex border-top">
+                          <small class="flex-fill text-center border-end py-2"><i class="fa fa-user-tie text-primary me-2"></i>{{x.teacher}}</small>
+                          <small class="flex-fill text-center border-end py-2"><i class="fa fa-clock text-primary me-2"></i>{{x.time}}</small>
+                          <small class="flex-fill text-center py-2"><i class="fa fa-user text-primary me-2"></i>{{x.students}}</small>
+                      </div>
+                  </div>
+              </div>
+              <div class="col-lg-4 col-md-6 wow fadeInUp" data-wow-delay="0.3s">
+                  <div class="course-item bg-light">
+                      <div class="position-relative overflow-hidden">
+                          <img class="img-fluid" src="{{i.image.url}}" alt="">
+                          <div class="w-100 d-flex justify-content-center position-absolute bottom-0 start-0 mb-4">
+                              <a href="" class="flex-shrink-0 btn btn-sm btn-primary px-3 border-end" style="border-radius: 30px 0 0 30px;"></a>
+                              <a href="registration/" class="flex-shrink-0 btn btn-sm btn-primary px-3" style="border-radius: 0 30px 30px 0;">{% trans 'Hoziroq qo`shiling' %}</a>
+                          </div>
+                      </div>
+                      <div class="text-center p-4 pb-0">
+                          <h3 class="mb-0">{{i.cost_course}} so`m</h3>
+                          <div class="mb-3">
+                              <small class="fa fa-star text-primary"></small>
+                              <small class="fa fa-star text-primary"></small>
+                              <small class="fa fa-star text-primary"></small>
+                              <small class="fa fa-star text-primary"></small>
+                              <small class="fa fa-star text-primary"></small>
+                              <small></small>
+                          </div>
+                          <h5 class="mb-4">{{i.name}}</h5>
+                      </div>
+                      <div class="d-flex border-top">
+                          <small class="flex-fill text-center border-end py-2"><i class="fa fa-user-tie text-primary me-2"></i>{{i.teacher}}</small>
+                          <small class="flex-fill text-center border-end py-2"><i class="fa fa-clock text-primary me-2"></i>{{i.time}}</small>
+                          <small class="flex-fill text-center py-2"><i class="fa fa-user text-primary me-2"></i>{{i.students}}</small>
+                      </div>
+                  </div>
+              </div>
+              <div class="col-lg-4 col-md-6 wow fadeInUp" data-wow-delay="0.5s">
+                  <div class="course-item bg-light">
+                      <div class="position-relative overflow-hidden">
+                          <img class="img-fluid" src="{{y.image.url}}" alt="">
+                          <div class="w-100 d-flex justify-content-center position-absolute bottom-0 start-0 mb-4">
+                              <a href="#" class="flex-shrink-0 btn btn-sm btn-primary px-3 border-end" style="border-radius: 30px 0 0 30px;"></a>
+                              <a href="registration/" class="flex-shrink-0 btn btn-sm btn-primary px-3" style="border-radius: 0 30px 30px 0;">{% trans 'Hoziroq qo`shiling' %}</a>
+                          </div>
+                      </div>
+                      <div class="text-center p-4 pb-0">
+                          <h3 class="mb-0">{{y.cost_course}} so`m</h3>
+                          <div class="mb-3">
+                              <small class="fa fa-star text-primary"></small>
+                              <small class="fa fa-star text-primary"></small>
+                              <small class="fa fa-star text-primary"></small>
+                              <small class="fa fa-star text-primary"></small>
+                              <small class="fa fa-star text-primary"></small>
+                              <small></small>
+                          </div>
+                          <h5 class="mb-4">{{y.name}}</h5>
+                      </div>
+                      <div class="d-flex border-top">
+                          <small class="flex-fill text-center border-end py-2"><i class="fa fa-user-tie text-primary me-2"></i>{{y.teacher}}</small>
+                          <small class="flex-fill text-center border-end py-2"><i class="fa fa-clock text-primary me-2"></i>{{y.time}}</small>
+                          <small class="flex-fill text-center py-2"><i class="fa fa-user text-primary me-2"></i>{{y.students}} </small>
+                      </div>
+                  </div>
+              </div>
+          </div>
+      </div>
+  </div>
+    
+    <!-- ======= About Us Section ======= -->
+    <section id="about" class="about">
+      <div class="container" data-aos="fade-up">
+
+        <div class="section-title">
+          <h2>{% trans 'Biz Haqimizda' %}</h2>
+        </div>
+
+        <div class="row content">
+          <div class="col-lg-6">
+            <p>
+              {% trans 'Biz eng yaxshi mentorlarga ega bo`lgan "BROTHERS EDUCATION" o`quv markazimiz' %}
+            </p>
+            <ul>
+              <li><i class="ri-check-double-line"></i> {% trans 'uda ham sifatli ta`lim' %}</li>
+              <li><i class="ri-check-double-line"></i> {% trans 'Har oy oylik imtihonlar' %} </li>
+              <li><i class="ri-check-double-line"></i> {% trans 'Ustozlar bepul maslahatlari' %}</li>
+            </ul>
+          </div>
+          <div class="col-lg-6 pt-4 pt-lg-0">
+            <p>
+              {% trans 'O`qish yaxshi biz bilan o`qish undan ham yaxshi' %}
+            </p>
+            <a href="#" class="btn-learn-more">{% trans 'Ro`yxatdan O`ting' %}</a>
+          </div>
+        </div>
+
+      </div>
+    </section><!-- End About Us Section -->
+
+    <!-- ======= Why Us Section ======= -->
+    <section id="why-us" class="why-us section-bg">
+      <div class="container-fluid" data-aos="fade-up">
+
+        <div class="row">
+
+          <div class="col-lg-7 d-flex flex-column justify-content-center align-items-stretch  order-2 order-lg-1">
+
+            <div class="content">
+              <h3> <strong>{% trans 'Nega aynan biz ?' %}</strong></h3>
+              <p>
+                {% trans 'Nega o`quvchilar bizni tanlashadi !' %}
+
+              </p>
+            </div>
+
+            <div class="accordion-list">
+              <ul>
+                <li>
+                  <a data-bs-toggle="collapse" class="collapse" data-bs-target="#accordion-list-1"><span>01</span> {% trans 'Biz har doim sifatli talim beramiz ' %}<i class="bx bx-chevron-down icon-show"></i><i
+                      class="bx bx-chevron-up icon-close"></i></a>
+                  <div id="accordion-list-1" class="collapse show" data-bs-parent=".accordion-list">
+                    <p>
+                      {% trans 'Har qanday holatda ham sizni fanga qiziqtirib qo`yamiz' %}
+                    </p>
+                  </div>
+                </li>
+
+                <li>
+                  <a data-bs-toggle="collapse" data-bs-target="#accordion-list-2" class="collapsed"><span>02</span> {% trans "Nega o`quvchilar darslarga qiziqadi ?" %} <i class="bx bx-chevron-down icon-show"></i><i
+                      class="bx bx-chevron-up icon-close"></i></a>
+                  <div id="accordion-list-2" class="collapse" data-bs-parent=".accordion-list">
+                    <p>
+                      {% trans 'Darslar quvnoq ruhda bo`ladi va hammani qo`llab quvatlab turamiz !' %}
+                    </p>
+                  </div>
+                </li>
+
+                <li>
+                  <a data-bs-toggle="collapse" data-bs-target="#accordion-list-3" class="collapsed"><span>03</span>
+                    {% trans 'Qancha talabalaringiz bor ?' %} <i class="bx bx-chevron-down icon-show"></i><i
+                      class="bx bx-chevron-up icon-close"></i></a>
+                  <div id="accordion-list-3" class="collapse" data-bs-parent=".accordion-list">
+                    <p>
+                      {% trans 'Bizning talabalar juda ko`p va ular hozirda o`zlarini ta`limga bag`ishlashgan !' %}
+                    </p>
+                  </div>
+                </li>
+
+              </ul>
+            </div>
+
+          </div>
+
+          <div class="col-lg-5 align-items-stretch order-1 order-lg-2 img"
+            style='background-image: url("assets/img/why-us.png");' data-aos="zoom-in" data-aos-delay="150">&nbsp;</div>
+        </div>
+
+      </div>
+    </section><!-- End Why Us Section -->
+
+    <!-- ======= Skills Section ======= -->
+    <section id="skills" class="skills">
+      <div class="container" data-aos="fade-up">
+
+        <div class="row">
+          <div class="col-lg-6 d-flex align-items-center" data-aos="fade-right" data-aos-delay="100">
+            <img src="../static/assets1/img/skills.png" class="img-fluid" alt="">
+          </div>
+          <div class="col-lg-6 pt-4 pt-lg-0 content" data-aos="fade-left" data-aos-delay="100">
+            <h3>{% trans 'Eng ko`p o`qitaladigan Fanlar' %}</h3>
+            <p class="fst-italic">
+
+            </p>
+
+            <div class="skills-content">
+
+              <div class="progress">
+                <span class="skill">IELTS <i class="val">100%</i></span>
+                <div class="progress-bar-wrap">
+                  <div class="progress-bar" role="progressbar" aria-valuenow="100" aria-valuemin="0"
+                    aria-valuemax="100"></div>
+                </div>
+              </div>
+
+              <div class="progress">
+                <span class="skill"> {% trans 'MATEMATIKA' %} <i class="val">90%</i></span>
+                <div class="progress-bar-wrap">
+                  <div class="progress-bar" role="progressbar" aria-valuenow="90" aria-valuemin="0" aria-valuemax="100">
+                  </div>
+                </div>
+              </div>
+
+              <div class="progress">
+                <span class="skill"> {% trans 'Bolalar Ingliz tilisi' %} <i class="val">75%</i></span>
+                <div class="progress-bar-wrap">
+                  <div class="progress-bar" role="progressbar" aria-valuenow="75" aria-valuemin="0" aria-valuemax="100">
+                  </div>
+                </div>
+              </div>
+
+              <div class="progress">
+                <span class="skill">{% trans 'Kimyo va Biologiya' %} <i class="val">55%</i></span>
+                <div class="progress-bar-wrap">
+                  <div class="progress-bar" role="progressbar" aria-valuenow="55" aria-valuemin="0" aria-valuemax="100">
+                  </div>
+                </div>
+              </div>
+
+            </div>
+
+          </div>
+        </div>
+
+      </div>
+    </section><!-- End Skills Section -->
+
+    <!-- ======= Services Section ======= -->
+    <section id="services" class="services section-bg">
+      <div class="container" data-aos="fade-up">
+
+        <div class="section-title">
+          <h2> {% trans 'Xizmatlar' %}</h2>
+          <p>{% trans 'Eng yaxshi Xizmatlar' %}</p>
+        </div>
+
+        <div class="row">
+          <div class="col-xl-3 col-md-6 d-flex align-items-stretch" data-aos="zoom-in" data-aos-delay="100">
+            <div class="icon-box">
+              <div class="icon"><i class="bx bxl-dribbble"></i></div>
+              <h4><a href="">{% trans 'O`yinlar' %}</a></h4>
+              <p>{% trans 'Farzandingiz biz orqali turli xil O`yinlar bilan darslarga ko`proq qiziqadi !' %}</p>
+            </div>
+          </div>
+
+          <div class="col-xl-3 col-md-6 d-flex align-items-stretch mt-4 mt-md-0" data-aos="zoom-in"
+            data-aos-delay="200">
+            <div class="icon-box">
+              <div class="icon"><i class="bx bx-file"></i></div>
+              <h4><a href="">{% trans 'Hujjatlar' %}</a></h4>
+              <p> {% trans 'Har qanday varoqlarni O`quv markaz ma`muriyati sizga taqdim etadi va bunga qo`shimcha pul so`ralmaydi' %}
+                !</p>
+            </div>
+          </div>
+
+          <div class="col-xl-3 col-md-6 d-flex align-items-stretch mt-4 mt-xl-0" data-aos="zoom-in"
+            data-aos-delay="300">
+            <div class="icon-box">
+              <div class="icon"><i class="bx bx-tachometer"></i></div>
+              <h4><a href="">{% trans 'Tez o`qitish' %}</a></h4>
+              <p>{% trans 'O`qishga kirishingiz uchun tez o`qitish tizimi !' %}</p>
+            </div>
+          </div>
+
+          <div class="col-xl-3 col-md-6 d-flex align-items-stretch mt-4 mt-xl-0" data-aos="zoom-in"
+            data-aos-delay="400">
+            <div class="icon-box">
+              <div class="icon"><i class="bx bx-layer"></i></div>
+              <h4><a href="">{% trans 'Sertifikatlar' %}</a></h4>
+              <p>{% trans 'Farzandingiz biz orqali turli xil sertifikatlar oladi!' %}</p>
+            </div>
+          </div>
+
+        </div>
+
+      </div>
+    </section>
+    <section id="cta" class="cta">
+      <div class="container" data-aos="zoom-in">
+
+        <div class="row">
+          <div class="col-lg-9 text-center text-lg-start">
+            <h3>{% trans "Biz bilan Yuksalish sari" %} </h3>
+            <p> {% trans "Biz orqali kelajakda bir kasb egasi bo`lishingizni taminlang" %}</p>
+          </div>
+          <div class="col-lg-3 cta-btn-container text-center">
+            <a class="cta-btn align-middle" href="#">{% trans "Ro`yxatdan O`ting" %}</a>
+          </div>
+        </div>
+
+      </div>
+    </section><!-- End Cta Section -->
+
+    <!-- ======= Portfolio Section ======= -->
+    <section id="portfolio" class="portfolio">
+      <div class="container" data-aos="fade-up">
+
+        <div class="section-title">
+          <h2>{% trans "Rasmlar" %}</h2>
+          <p>{% trans "Bizning kurlarimiz davomida o`quvchilar rasmlari >>>" %}</p>
+        </div>
+
+        <ul id="portfolio-flters" class="d-flex justify-content-center" data-aos="fade-up" data-aos-delay="100">
+          <li data-filter="*" class="filter-active">All</li>
+          <li data-filter=".filter-app">Pics</li>
+          <li data-filter=".filter-card">store</li>
+          <li data-filter=".filter-web">Best</li>
+        </ul>
+
+        <div class="row portfolio-container" data-aos="fade-up" data-aos-delay="200">
+
+          <div class="col-lg-4 col-md-6 portfolio-item filter-app">
+            <div class="portfolio-img"><img src="{{im1.img.url}}" class="img-fluid"
+                alt=""></div>
+            <div class="portfolio-info">
+              <h4>App 1</h4>
+              <p>App</p>
+              <a href="{{im1.img.url}}" data-gallery="portfolioGallery"
+                class="portfolio-lightbox preview-link" title="App 1"><i class="bx bx-plus"></i></a>
+              <a href="{% url 'registration' %}" class="details-link" title="More Details"><i class="bx bx-link"></i></a>
+            </div>
+          </div>
+
+          <div class="col-lg-4 col-md-6 portfolio-item filter-web">
+            <div class="portfolio-img"><img src="{{im2.img.url}}" class="img-fluid"
+                alt=""></div>
+            <div class="portfolio-info">
+              <h4>Web 3</h4>
+              <p>Web</p>
+              <a href="{{im2.img.url}}" data-gallery="portfolioGallery"
+                class="portfolio-lightbox preview-link" title="Web 3"><i class="bx bx-plus"></i></a>
+              <a href="#" class="details-link" title="More Details"><i class="bx bx-link"></i></a>
+            </div>
+          </div>
+
+          <div class="col-lg-4 col-md-6 portfolio-item filter-app">
+            <div class="portfolio-img"><img src="{{im3.img.url}}" class="img-fluid" alt=""></div>
+            <div class="portfolio-info">
+              <h4>App 2</h4>
+              <p>App</p>
+              <a href="{{im3.img.url}}" data-gallery="portfolioGallery"
+                class="portfolio-lightbox preview-link" title="App 2"><i class="bx bx-plus"></i></a>
+              <a href="{% url 'registration' %}" class="details-link" title="More Details"><i class="bx bx-link"></i></a>
+            </div>
+          </div>
+
+          <div class="col-lg-4 col-md-6 portfolio-item filter-card">
+            <div class="portfolio-img"><img src="{{im4.img.url}}" class="img-fluid" alt=""></div>
+            <div class="portfolio-info">
+              <h4>Card 2</h4>
+              <p>Card</p>
+              <a href="{{im4.img.url}}" data-gallery="portfolioGallery"
+                class="portfolio-lightbox preview-link" title="Card 2"><i class="bx bx-plus"></i></a>
+              <a href="{% url 'registration' %}" class="details-link" title="More Details"><i class="bx bx-link"></i></a>
+            </div>
+          </div>
+
+          <div class="col-lg-4 col-md-6 portfolio-item filter-web">
+            <div class="portfolio-img"><img src="{{im5.img.url}}" class="img-fluid" alt=""></div>
+            <div class="portfolio-info">
+              <h4>Web 2</h4>
+              <p>Web</p>
+              <a href="{{im5.img.url}}" data-gallery="portfolioGallery"
+                class="portfolio-lightbox preview-link" title="Web 2"><i class="bx bx-plus"></i></a>
+              <a href="{% url 'registration' %}" class="details-link" title="More Details"><i class="bx bx-link"></i></a>
+            </div>
+          </div>
+
+          <div class="col-lg-4 col-md-6 portfolio-item filter-app">
+            <div class="portfolio-img"><img src="{{im6.img.url}}" class="img-fluid" alt=""></div>
+            <div class="portfolio-info">
+              <h4>App 3</h4>
+              <p>App</p>
+              <a href="{{im6.img.url}}" data-gallery="portfolioGallery"
+                class="portfolio-lightbox preview-link" title="App 3"><i class="bx bx-plus"></i></a>
+              <a href="{% url 'registration' %}" class="details-link" title="More Details"><i class="bx bx-link"></i></a>
+            </div>
+          </div>
+
+          <div class="col-lg-4 col-md-6 portfolio-item filter-card">
+            <div class="portfolio-img"><img src="{{im7.img.url}}" class="img-fluid" alt=""></div>
+            <div class="portfolio-info">
+              <h4>Card 1</h4>
+              <p>Card</p>
+              <a href="{{im7.img.url}}" data-gallery="portfolioGallery"
+                class="portfolio-lightbox preview-link" title="Card 1"><i class="bx bx-plus"></i></a>
+              <a href="{% url 'registration' %}" class="details-link" title="More Details"><i class="bx bx-link"></i></a>
+            </div>
+          </div>
+
+          <div class="col-lg-4 col-md-6 portfolio-item filter-card">
+            <div class="portfolio-img"><img src="{{im8.img.url}}" class="img-fluid" alt=""></div>
+            <div class="portfolio-info">
+              <h4>Card 3</h4>
+              <p>Card</p>
+              <a href="{{im8.img.url}}" data-gallery="portfolioGallery"
+                class="portfolio-lightbox preview-link" title="Card 3"><i class="bx bx-plus"></i></a>
+              <a href="{% url 'registration' %}" class="details-link" title="More Details"><i class="bx bx-link"></i></a>
+            </div>
+          </div>
+
+          <div class="col-lg-4 col-md-6 portfolio-item filter-web">
+            <div class="portfolio-img"><img src="{{im9.img.url}}" class="img-fluid" alt=""></div>
+            <div class="portfolio-info">
+              <h4>Web 3</h4>
+              <p>Web</p>
+              <a href="{{im9.img.url}}" data-gallery="portfolioGallery"
+                class="portfolio-lightbox preview-link" title="Web 3"><i class="bx bx-plus"></i></a>
+              <a href="{% url 'registration' %}" class="details-link" title="More Details"><i class="bx bx-link"></i></a>
+            </div>
+          </div>
+
+        </div>
+
+      </div>
+    </section><!-- End Portfolio Section -->
+
+    <!-- ======= Team Section ======= -->
+    <section id="team" class="team section-bg">
+      <div class="container" data-aos="fade-up">
+
+        <div class="section-title">
+          <h2>{% trans 'Ustozlar' %}</h2>
+          <p>{% trans "Bizning mentorlarimiz" %}</p>
+        </div>
+
+        <div class="row">
+
+          <div class="col-lg-6" data-aos="zoom-in" data-aos-delay="100">
+            <div class="member d-flex align-items-start">
+              <div class="pic"><img src="{{us1.rasmi.url}}" class="img-fluid" alt=""></div>
+              <div class="member-info">
+                <h4>{{us1.name}}</h4>
+                <span>{{us1.fani}}</span>
+                <p>{{us1.izohi}} </p>
+                <div class="social">
+                  <a href="{{us1.telegram_linki}}"><i class="ri-telegram-fill"></i></a>
+                  <a href="{{us1.telephone}}"><i class="ri-phone-fill"></i></a>
+                  <a href=""><i class="ri-instagram-fill"></i></a>
+                  <a href=""> <i class="ri-linkedin-box-fill"></i> </a>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="col-lg-6 mt-4 mt-lg-0" data-aos="zoom-in" data-aos-delay="200">
+            <div class="member d-flex align-items-start">
+              <div class="pic"><img src="{{us2.rasmi.url}}" class="img-fluid" alt=""></div>
+              <div class="member-info">
+                <h4>{{us2.name}} </h4>
+                <span>{{us2.fani}}</span>
+                <p>{{us2.izohi}}</p>
+                <div class="social">
+                  <a href="{{us2.telegram_linki}}"><i class="ri-telegram-fill"></i></a>
+                  <a href="{{us2.telephone}}"><i class="ri-phone-fill"></i></a>
+                  <a href=""><i class="ri-instagram-fill"></i></a>
+                  <a href=""> <i class="ri-linkedin-box-fill"></i> </a>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="col-lg-6 mt-4" data-aos="zoom-in" data-aos-delay="300">
+            <div class="member d-flex align-items-start">
+              <div class="pic"><img src="{{us3.rasmi.url}}" class="img-fluid" alt=""></div>
+              <div class="member-info">
+                <h4>{{us3.name}}</h4>
+                <span>{{us3.fani}}</span>
+                <p>{{us3.izohi}}</p>
+                <div class="social">
+                  <a href="{{us3.telegram_linki}}"><i class="ri-telegram-fill"></i></a>
+                  <a href="{{us3.telephone}}"><i class="ri-phone-fill"></i></a>
+                  <a href=""><i class="ri-instagram-fill"></i></a>
+                  <a href=""> <i class="ri-linkedin-box-fill"></i> </a>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="col-lg-6 mt-4" data-aos="zoom-in" data-aos-delay="400">
+            <div class="member d-flex align-items-start">
+              <div class="pic"><img src="{{us4.rasmi.url}}" class="img-fluid" alt=""></div>
+              <div class="member-info">
+                <h4>{{us4.name}}</h4>
+                <span>{{us4.fani}}</span>
+                <p>{{us4.izohi}}</p>
+                <div class="social">
+                  <a href="{{us4.telegram_linki}}"><i class="ri-telegram-fill"></i></a>
+                  <a href="{{us4.telegram_linki}}"><i class="ri-phone-fill"></i></a>
+                  <a href=""><i class="ri-instagram-fill"></i></a>
+                  <a href=""> <i class="ri-linkedin-box-fill"></i> </a>
+                </div>
+              </div>
+            </div>
+          </div>
+
+        </div>
+
+      </div>
+    </section><!-- End Team Section -->
+
+    <!-- ======= Pricing Section ======= -->
+    <section id="pricing" class="pricing">
+      <div class="container" data-aos="fade-up">
+
+        <div class="section-title">
+          <h2>{% trans "Narxlar" %}</h2>
+          <p> {% trans " Bizdagi Narxlar Chuntakbop va qulay ! Va yana agar boshqa kurslar haqida ma`lumot olishni istasangiz Bizni telegram botimizga tashrif buyuring ! Telegram bot >>> " %} <a href="http://t.me/Edubrotherbot"> Telegram</a>
+          </p>
+        </div>
+
+        <div class="row">
+
+          <div class="col-lg-4" data-aos="fade-up" data-aos-delay="100">
+            <div class="box">
+              <h3>{{p.name}} </h3>
+              <h4><sup>$</sup>{{p.cost}}<span>{% trans "Oyiga" %}</span></h4>
+              <ul>
+                <li><i class="bx bx-check"></i> {{p.good}}</li>
+                <li><i class="bx bx-check"></i> {{p.good1}}</li>
+                <li><i class="bx bx-check"></i> {{p.good2}}</li>
+                <li class="na"><i class="bx bx-x"></i> <span>{{p.good3}}</span></li>
+                <li class="na"><i class="bx bx-x"></i> <span> {{p.good4}} </span></li>
+              </ul>
+              <a href="{% url 'registration' %}" class="buy-btn">{% trans "Ro`yxatdan o`tish" %}</a>
+            </div>
+          </div>
+
+          <div class="col-lg-4 mt-4 mt-lg-0" data-aos="fade-up" data-aos-delay="200">
+            <div class="box featured">
+              <h3>{{p1.name}}</h3>
+              <h4><sup>$</sup>{{p.cost}}<span>{% trans "Oyiga" %}</span></h4>
+              <ul>
+                <li><i class="bx bx-check"></i> {{p1.good}}</li>
+                <li><i class="bx bx-check"></i> {{p1.good1}}</li>
+                <li><i class="bx bx-check"></i> {{p1.good2}}
+                </li>
+                <li><i class="bx bx-check"></i> {{p1.good3}}</li>
+                <li><i class="bx bx-check"></i> {{p1.good4}}</li>
+              </ul>
+              <a href="{% url 'registration' %}" class="buy-btn">{% trans "Ro`yxatdan o`tish" %}</a>
+            </div>
+          </div>
+
+          <div class="col-lg-4 mt-4 mt-lg-0" data-aos="fade-up" data-aos-delay="300">
+            <div class="box">
+              <h3>{{p2.name}}</h3>
+              <h4><sup>$</sup>{{p2.cost}}<span>{% trans "Oyiga" %}</span></h4>
+              <ul>
+                <li><i class="bx bx-check"></i> {{p2.good}}</li>
+                <li><i class="bx bx-check"></i> {{p2.good1}}</li>
+                <li><i class="bx bx-check"></i> {{p2.good2}}</li>
+                <li><i class="bx bx-check"></i> {{p2.good3}}</li>
+                <li><i class="bx bx-check"></i> {{p2.good4}}</li>
+              </ul>
+              <a href="{% url 'registration' %}" class="buy-btn">{% trans "Ro`yxatdan o`tish" %}</a>
+            </div>
+          </div>
+
+        </div>
+
+      </div>
+    </section><!-- End Pricing Section -->
+
+    <!-- ======= Frequently Asked Questions Section ======= -->
+    <section id="faq" class="faq section-bg">
+      <div class="container" data-aos="fade-up">
+
+        <div class="section-title">
+          <h2>{% trans "Ko`p So`raladigan Savollar" %}</h2>
+          <p>{% trans "Foydalanuvchilar tomonidan ko`p so`raladigan savollar" %}</p>
+        </div>
+
+        <div class="faq-list">
+          <ul>
+            <li data-aos="fade-up" data-aos-delay="100">
+              <i class="bx bx-help-circle icon-help"></i> <a data-bs-toggle="collapse" class="collapse"
+                data-bs-target="#faq-list-1">{% trans "Kursingizga qanday yozilsam bo`ladi ?" %} <i
+                  class="bx bx-chevron-down icon-show"></i><i class="bx bx-chevron-up icon-close"></i></a>
+              <div id="faq-list-1" class="collapse show" data-bs-parent=".faq-list">
+                <p>
+                  {% trans "Buning uchun Ro`yxatdan o`tish kinopkasini bosing va kerakli joylarni to`ldiring !" %}
+                </p>
+              </div>
+            </li>
+
+            <li data-aos="fade-up" data-aos-delay="200">
+              <i class="bx bx-help-circle icon-help"></i> <a data-bs-toggle="collapse" data-bs-target="#faq-list-2"
+                class="collapsed"> {% trans "Kursingizda nega sertifikat beriladi ?" %} <i class="bx bx-chevron-down icon-show"></i><i
+                  class="bx bx-chevron-up icon-close"></i></a>
+              <div id="faq-list-2" class="collapse" data-bs-parent=".faq-list">
+                <p>
+                  {% trans "Chunki biz sertifikatlar orqali qanday o`qishingizni baholab turamiz" %}
+                </p>
+              </div>
+            </li>
+
+            <li data-aos="fade-up" data-aos-delay="300">
+              <i class="bx bx-help-circle icon-help"></i> <a data-bs-toggle="collapse" data-bs-target="#faq-list-3"
+                class="collapsed">{% trans "Kurs narxlarini qanday arzonlashtirsam bo`ladi ?" %} <i
+                  class="bx bx-chevron-down icon-show"></i><i class="bx bx-chevron-up icon-close"></i></a>
+              <div id="faq-list-3" class="collapse" data-bs-parent=".faq-list">
+                <p>
+                  {% trans "Buning iloji yo`q lekin siz har oy testlarga zo`r qatnashsangiz sizga 50% gacha chegirma taqdim etiladi !" %}
+                </p>
+              </div>
+            </li>
+
+            <li data-aos="fade-up" data-aos-delay="400">
+              <i class="bx bx-help-circle icon-help"></i> <a data-bs-toggle="collapse" data-bs-target="#faq-list-4"
+                class="collapsed"> {% trans "Chegirmalarni qanday to`layman ?" %} <i class="bx bx-chevron-down icon-show"></i><i
+                  class="bx bx-chevron-up icon-close"></i></a>
+              <div id="faq-list-4" class="collapse" data-bs-parent=".faq-list">
+                <p>
+                  {% trans "Masalan agar siz 150000 so`mlik kursda o`qisangiz 50%li chegirma bilan 75000 to`laysiz" %}
+                </p>
+              </div>
+            </li>
+
+            <li data-aos="fade-up" data-aos-delay="500">
+              <i class="bx bx-help-circle icon-help"></i> <a data-bs-toggle="collapse" data-bs-target="#faq-list-5"
+                class="collapsed"> {% trans "Hamma fanlar bormi ?" %} <i class="bx bx-chevron-down icon-show"></i><i
+                  class="bx bx-chevron-up icon-close"></i></a>
+              <div id="faq-list-5" class="collapse" data-bs-parent=".faq-list">
+                <p>
+                  {% trans "Yo`q lekin hozirda 5ta fan mavjud" %}
+                </p>
+              </div>
+            </li>
+
+          </ul>
+        </div>
+
+      </div>
+    </section><!-- End Frequently Asked Questions Section -->
+
+    <!-- ======= Contact Section ======= -->
+    <!-- End Contact Section -->
+
+  </main><!-- End #main -->
+
+  <!-- ======= Footer ======= -->
+  <footer id="footer">
+
+    <!-- <div class="footer-newsletter">
+      <div class="container">
+        <div class="row justify-content-center">
+          <div class="col-lg-6">
+            <h4>Bizga Qo`shiling</h4>
+            <p>emailingiz</p>
+            <form action="" method="post">
+              <input type="email" name="email"><input type="submit" value="Subscribe">
+            </form>
+          </div>
+        </div>
+      </div>
+    </div> -->
+
+    <div class="footer-top">
+      <div class="container">
+        <div class="row">
+
+          <div class="col-lg-3 col-md-6 footer-contact">
+            <h3>Brothers Education</h3>
+            <p>
+              {% trans "✅Manzilimiz" %} : Manzil:Pastdarg'om Tumani,Beshbola M.F.Y, sherdor 19 <br><br>
+              <strong>Telefon:</strong> +998 55 705 60 05<br>
+              <strong>Email:</strong> brothereducation@gmail.com<br>
+            </p>
+          </div>
+
+          <div class="col-lg-3 col-md-6 footer-links">
+            <h4>{% trans "Foydali linklar" %}</h4>
+            <ul>
+              <li><i class="bx bx-chevron-right"></i> <a href="#">Home</a></li>
+              <li><i class="bx bx-chevron-right"></i> <a href="#">About us</a></li>
+              <li><i class="bx bx-chevron-right"></i> <a href="#">Services</a></li>
+              <li><i class="bx bx-chevron-right"></i> <a href="{% url 'registration' %}">Terms of service</a></li>
+              <li><i class="bx bx-chevron-right"></i> <a href="{% url 'registration' %}">Privacy policy</a></li>
+            </ul>
+          </div>
+
+          <div class="col-lg-3 col-md-6 footer-links">
+            <h4>Bizning kurslar</h4>
+            <ul>
+              <li><i class="bx bx-chevron-right"></i> <a href="#">IELTS</a></li>
+              <li><i class="bx bx-chevron-right"></i> <a href="#">Pre IELTS</a></li>
+              <li><i class="bx bx-chevron-right"></i> <a href="#">Matematika</a></li>
+              <li><i class="bx bx-chevron-right"></i> <a href="#">Kimyo va Biologiya</a></li>
+              <li><i class="bx bx-chevron-right"></i> <a href="#">Fizika</a></li>
+            </ul>
+          </div>
+
+          <div class="col-lg-3 col-md-6 footer-links">
+            <h4>Ijtimoiy Tarmoqlar</h4>
+            <p>Kirib Ko`ring</p>
+            <div class="social-links mt-3">
+              <a href="https://t.me/Edubrotherbot" class="twitter"><i class="bx bxl-instagram"></i></a>
+              <a href="https://t.me/Edubrotherbot" class="facebook"><i class="bx bxl-telegram"></i></a>
+              <!-- <a href="https://t.me/Edubrotherbot" class="instagram"><i class="bx bxl-instagram"></i></a> -->
+              <a href="https://t.me/Edubrotherbot" class="google-plus"><i class="bx bxl-facebook"></i></a>
+              <!-- <a href="https://t.me/Edubrotherbot" class="linkedin"><i class="bx bxl-"></i></a> -->
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </div>
+
+    <div class="container footer-bottom clearfix">
+      <div class="copyright">
+        &copy; <strong><span>Brothers Education</span></strong> {% trans "Barcha huquqlar himoyalangan" %}
+      </div>
+      <div class="credits">
+        <!-- All the links in the footer should remain intact. -->
+        <!-- You can delete the links only if you purchased the pro version. -->
+        <!-- Licensing information: https://bootstrapmade.com/license/ -->
+        <!-- Purchase the pro version with working PHP/AJAX contact form: https://bootstrapmade.com/arsha-free-bootstrap-html-template-corporate/ -->
+        Designed by <a href="#">Nurbek Abdurashitov</a>
+      </div>
+    </div>
+  </footer><!-- End Footer -->
+
+  <div id="preloader"></div>
+  <a href="#" class="back-to-top d-flex align-items-center justify-content-center"><i
+      class="bi bi-arrow-up-short"></i></a>
+
+  <!-- Vendor JS Files -->
+  <script src="{% static 'assets1/vendor/aos/aos.js' %}"></script>
+  <script src="{% static 'assets1/vendor/bootstrap/js/bootstrap.bundle.min.js' %}"></script>
+  <script src="{% static 'assets1/vendor/glightbox/js/glightbox.min.js' %}"></script>
+  <script src="{% static 'assets1/vendor/isotope-layout/isotope.pkgd.min.js' %}"></script>
+  <script src="{% static 'assets1/vendor/swiper/swiper-bundle.min.js' %}"></script>
+  <script src="{% static 'assets1/vendor/waypoints/noframework.waypoints.js' %}"></script>
+  <script src="{% static 'assets1/vendor/php-email-form/validate.js' %}"></script>
+  <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0/dist/js/bootstrap.bundle.min.js"></script>
+  <script src="lib/wow/wow.min.js"></script>
+  <script src="lib/easing/easing.min.js"></script>
+  <script src="lib/waypoints/waypoints.min.js"></script>
+  <script src="lib/owlcarousel/owl.carousel.min.js"></script>
+  <!-- Template Main JS File -->
+  <script src="{% static 'assets1/js/main.js' %}"></script>
+  <script src="{% static 'assets3/vendor/bootstrap/js/bootstrap.bundle.min.js' %}"></script>
+  <script src="{% static 'assets3/vendor/swiper/swiper-bundle.min.js' %}"></script>
+  <script src="{% static 'assets3/vendor/php-email-form/validate.js' %}"></script>
+  <script src="{% static 'js/main.js' %}"></script>
+  <!-- Template Main JS File -->
+  <script src="{% static 'assets3/js/main.js' %}"></script>
+</body>
+
+</html>
