@@ -12,9 +12,9 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = "django-insecure-s3dzss)xk3@c9^1h7ygjb239h^^tuirb%md2h%s($oq8smxo%b"
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = False
+DEBUG = True
 
-ALLOWED_HOSTS = ['*']
+ALLOWED_HOSTS = ["*"]
 
 INSTALLED_APPS = [
     "jazzmin",
@@ -115,9 +115,9 @@ LANGUAGES = (
 # https://docs.djangoproject.com/en/4.1/howto/static-files/
 import os
 STATIC_URL = "static/"
-STATICFILES_DIRS = [str(BASE_DIR.joinpath('static'))]
-STATIC_ROOT = str(BASE_DIR.joinpath('staticfiles'))
-# STATIC_DIR=os.path.join(BASE_DIR,'static')
+STATICFILES_DIRS = [str(BASE_DIR.joinpath('staticfiles'))]
+# STATIC_ROOT = str(BASE_DIR.joinpath('static'))
+STATIC_DIR=os.path.join(BASE_DIR,'static')
 MEDIA_ROOT=os.path.join(BASE_DIR,'static')
 
 DEFAULT_AUTO_FIELD = "django.db.models.BigAutoField"

@@ -178,7 +178,7 @@ msgid ""
 msgstr "BROTHERS EDUCATION  study where we have the best mentors our center"
 
 #: .\templates\index.html:297
-msgid "uda ham sifatli ta`lim"
+msgid "Juda ham sifatli ta`lim"
 msgstr "Very high quality education"
 
 #: .\templates\index.html:298
