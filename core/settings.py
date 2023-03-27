@@ -118,7 +118,8 @@ STATIC_URL = "static/"
 STATICFILES_DIRS = [str(BASE_DIR.joinpath('staticfiles'))]
 # STATIC_ROOT = str(BASE_DIR.joinpath('static'))
 STATIC_DIR=os.path.join(BASE_DIR,'static')
-MEDIA_ROOT=os.path.join(BASE_DIR,'static')
+MEDIA_ROOT=os.path.join(BASE_DIR,'media')
+STATIC_ROOT = os.path.join(BASE_DIR, 'static')
 
 DEFAULT_AUTO_FIELD = "django.db.models.BigAutoField"
 LOGIN_REDIRECT_URL='/afterlogin'
